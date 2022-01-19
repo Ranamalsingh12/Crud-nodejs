@@ -1,18 +1,13 @@
 const express = require("express")
 const route = express.Router()
+const services = require('../services/render')
 
-route.get('/',(req,res) => {
-    res.render('index');
-})
+route.get('/',services.homeRoutes)
 
-route.get('/add-user',(req,res) => {
-    res.render('new_user');
-})
+route.get('/add-user',services.new_user)
 
 
-route.get('/update-user',(req,res) => {
-    res.render('upt_user');
-})
+route.get('/update-user',services.upt_user)
 
 
 module.exports = route;
