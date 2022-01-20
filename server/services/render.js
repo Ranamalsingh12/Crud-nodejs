@@ -9,8 +9,6 @@ exports.homeRoutes = (req, res) => {
     .catch(err => {
         res.send(err);
     })
-
-
 }
 
 exports.new_user = (req, res) => {
@@ -18,5 +16,11 @@ exports.new_user = (req, res) => {
 }
 
 exports.upt_user = (req, res) => {
-    res.render('upt_user');
+    axios.get('http://localhost:3000/api/users',{params : {id : req.query.id}})
+    .then(function (userdata) {
+        res.render('upt_user', { user : userdata.data});
+    })
+    .catch(err=> {
+        res.send(err);
+    })
 }
