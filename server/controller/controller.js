@@ -61,12 +61,29 @@ exports.update = (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-            message: err.message || "Error update user information"
+            message: err.message || "Error update user information  "
         });
     });
 }
 
 //Delete a user with specified user id
 exports.delete = (req, res) => {
+    const id = req.params.id;
 
+    Userdb.findByIdAndDelete(id)
+    .then(data => {
+        if(!data){
+            res.status(404).send({message : `Cannot delete with id ${id}, Maybe id is wrong`})
+        }
+        else{
+            res.send({
+                message : "User Deleted Successfully!"
+            })
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Could not delete User with id" + id
+        });
+    });
 }
