@@ -106,7 +106,9 @@ table{
 .table tr:hover{
     background-color: #06d6a0;
 }
-
+.table tbody tr td a.delete{
+    cursor: pointer;
+}
 .table tr:hover td > a{
     box-shadow: none;
 }
