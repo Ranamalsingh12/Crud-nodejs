@@ -33,3 +33,8 @@ app.use('/',require('./server/routes/router'))
 app.listen(PORT, ()=> {
     console.log(`Running on http://localhost:${PORT}`);
 })
+
+
+
+
+//my database is myFirstDatabase 
